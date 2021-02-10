@@ -1,5 +1,6 @@
 package jpashop.jpashop.repository;
 
+import jpashop.jpashop.domain.item.Book;
 import jpashop.jpashop.domain.item.Item;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -24,6 +25,8 @@ public class ItemRepository {
     public Item findOne(Long id) {
         return em.find(Item.class, id);
     }
+
+    public Book findOneBook(Long id) { return em.find(Book.class, id); }
 
     public List<Item> findAll() {
         return em.createQuery("select i from Item i", Item.class)
